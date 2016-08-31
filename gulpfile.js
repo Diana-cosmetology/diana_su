@@ -16,36 +16,38 @@ const allGlob = '/**/*';
 
 // config vars for folders/files:
 var source = {  base: './source' };
-source.css = source.base + '/css';
+source.css = source.base + '/assets/css';
 source.cssFiles = source.css + '/**/*.css'; // only css files inside source folder
-source.img = source.base + '/img';
-source.imgAll = source.img + allGlob; // all files in source img folder
-source.fonts = source.base + '/fonts';
+source.img = source.base + '/assets/images';
+source.imgAll = source.img + allGlob; // all files in source images folder
+source.fonts = source.base + '/assets/fonts';
 source.fontsAll = source.fonts + allGlob;
 source.htmlFiles = source.base + '/**/*.html'; // only html files inside source folder
-source.js = source.base + '/js';
+source.js = source.base + '/assets/js';
 source.jsFiles = source.js + '/**/*.js'; // only js files inside source folder
 source.robotsFile = source.base + '/robots.txt'
 source.sitemapFile = source.base + '/sitemap.*'
+source.pluginsAll = source.base + '/assets/plugins/**/*.*'
 
-var build = { base: './build' };
-build.css = build.base + '/css';
+var build = { base: './build' }
+build.css = build.base + '/assets/css'
 build.cssFiles = build.css;
-build.img = build.base + '/img';
+build.img = build.base + '/assets/images'
 build.imgFiles = [
   build.img + '/*.jpg',
   build.img + '*.png',
   build.img + '*.ico',
   build.img + '*.gif'
 ];
-build.fonts = build.base + '/fonts';
-build.js = build.base + '/js';
+build.fonts = build.base + '/assets//fonts'
+build.js = build.base + '/assets/js'
+build.plugins = build.base + '/assets/plugins'
 
 // config var for task names:
 var task = {
   clean: 'clean',
   processCss: 'process-css',
-  processImg: 'process-img',
+  processImg: 'process-images',
   processFonts: 'process-fonts',
   processHtml: 'process-html',
   processJs: 'process-js',
@@ -56,11 +58,13 @@ var task = {
   watchCss: 'watch-css',
   watchHtml: 'watch-html',
   watchOther: 'watch-other',
+  watchPlugins: 'watch-plugins',
   publish: 'publish',
   publishWatch: 'publish-watch',
   reload: 'reload-browser',
-  critical: 'critical-css'
-};
+  critical: 'critical-css',
+  processPlugins: 'process-plugins'
+}
 
 // configuration for publish to FTP:
 const connection = {
@@ -93,7 +97,7 @@ gulp.task( task.processAll, function(done) {
   runSequence( 
     task.clean,
     task.processImg, task.processFonts, task.processCss , task.processHtml, task.processJs,
-    task.processOther,
+    task.processPlugins, task.processOther,
     task.reload,
     done
   );
@@ -125,7 +129,7 @@ gulp.task( task.processCss, function () {
 // IMG: process image files: minify with imagemin
 gulp.task( task.processImg, function () {
 
-  // copy all files from img folder to dest
+  // copy all files from images folder to dest
   return gulp.src( source.imgAll  )
     .pipe(imagemin())
     .pipe( gulp.dest( build.img ));
@@ -164,6 +168,13 @@ gulp.task( task.processOther, function () {
     .pipe( gulp.dest( build.base ));
 });
 
+// PLUGINS: process plugins (vendor bundles):
+gulp.task( task.processPlugins, function () {
+  // plain copy of all font files into dest:
+  return gulp.src( source.pluginsAll  )
+    .pipe( gulp.dest( build.plugins ));
+});
+
 // reload browser and publish site helper function
 var reloadAndPublish = function(done) {
   browserSync.reload();
@@ -177,6 +188,7 @@ gulp.task( task.watchHtml, [ task.processHtml ], reloadAndPublish );
 gulp.task( task.watchCss, [ task.processCss ], reloadAndPublish );
 gulp.task( task.watchJs, [ task.processJs ], reloadAndPublish );
 gulp.task( task.watchOther, [ task.processOther ], reloadAndPublish );
+gulp.task( task.watchPlugins, [ task.processPlugins ], reloadAndPublish );
 
 // Start webserver with live reloading:
 gulp.task(task.webserver, [task.processAll], function() {
@@ -196,6 +208,7 @@ gulp.task(task.webserver, [task.processAll], function() {
   gulp.watch( source.cssFiles, [ task.watchCss ] );
   gulp.watch( source.robotsFile, [ task.watchOther ] );
   gulp.watch( source.sitemapFile, [ task.watchOther ] );
+  gulp.watch( source.pluginsAll, [ task.watchPlugins ] );
 });
 
 // PUBLISH: upload files to FTP
