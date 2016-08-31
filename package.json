@@ -1,0 +1,33 @@
+{
+  "name": "diana_su",
+  "version": "0.0.1",
+  "description": "Diana.su site for Diana Cosmetology company",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Diana-cosmetology/diana_su.git"
+  },
+  "author": "deksden",
+  "license": "GPL-3.0",
+  "bugs": {
+    "url": "https://github.com/Diana-cosmetology/diana_su/issues"
+  },
+  "homepage": "https://github.com/Diana-cosmetology/diana_su/#readme",
+  "devDependencies": {
+    "browser-sync": "^2.13.0",
+    "critical": "^0.7.3",
+    "del": "^2.2.1",
+    "dotenv-safe": "^2.3.1",
+    "gulp": "^3.9.1",
+    "gulp-clean-css": "^2.0.10",
+    "gulp-htmlmin": "^2.0.0",
+    "gulp-imagemin": "^3.0.1",
+    "gulp-minify": "0.0.12",
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.1",
+    "vinyl-ftp": "^0.5.0"
+  }
+}
