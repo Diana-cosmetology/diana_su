@@ -10,12 +10,24 @@
 	<meta name="Author" content="deksden.com" />
 
 	<!-- FAVICONS -->
-	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="57x57" href="/assets/images/favicon/apple-touch-icon-57x57.png">
+	<link rel="apple-touch-icon" sizes="60x60" href="/assets/images/favicon/apple-touch-icon-60x60.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/images/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="76x76" href="/assets/images/favicon/apple-touch-icon-76x76.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/images/favicon/apple-touch-icon-114x114.png">
+	<link rel="apple-touch-icon" sizes="120x120" href="/assets/images/favicon/apple-touch-icon-120x120.png">
+	<link rel="apple-touch-icon" sizes="144x144" href="/assets/images/favicon/apple-touch-icon-144x144.png">
+	<link rel="apple-touch-icon" sizes="152x152" href="/assets/images/favicon/apple-touch-icon-152x152.png">
+	<link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicon/apple-touch-icon-180x180.png">
 	<link rel="icon" type="image/png" href="/assets/images/favicon/favicon-32x32.png" sizes="32x32">
+	<link rel="icon" type="image/png" href="/assets/images/favicon/favicon-194x194.png" sizes="194x194">
+	<link rel="icon" type="image/png" href="/assets/images/favicon/android-chrome-192x192.png" sizes="192x192">
 	<link rel="icon" type="image/png" href="/assets/images/favicon/favicon-16x16.png" sizes="16x16">
 	<link rel="manifest" href="/assets/images/favicon/manifest.json">
 	<link rel="mask-icon" href="/assets/images/favicon/safari-pinned-tab.svg" color="#5bbad5">
 	<link rel="shortcut icon" href="/assets/images/favicon/favicon.ico">
+	<meta name="msapplication-TileColor" content="#00aba9">
+	<meta name="msapplication-TileImage" content="/assets/images/favicon/mstile-144x144.png">
 	<meta name="msapplication-config" content="/assets/images/favicon/browserconfig.xml">
 	<meta name="theme-color" content="#ffffff">
 
@@ -39,7 +51,7 @@
 
 	<!-- PAGE LEVEL SCRIPTS -->
 	<link href="assets/css/header-1.css" rel="stylesheet" type="text/css" />
-	<link href="assets/css/color_scheme/green.css" rel="stylesheet" type="text/css" id="color_scheme" />
+	<link href="assets/css/color_scheme/blue.css" rel="stylesheet" type="text/css" id="color_scheme" />
 
 </head>
 
@@ -66,7 +78,7 @@
 -->
 <body class="smoothscroll enable-animation">
 
-<!-- SLIDE TOP -->
+<!-- SLIDE TOP ->
 <div id="slidetop">
 
 	<div class="container">
@@ -102,7 +114,7 @@
 
 	</div>
 
-	<a class="slidetop-toggle" href="#"><!-- toggle button --></a>
+	<a class="slidetop-toggle" href="#"><!-- toggle button -></a>
 
 </div>
 <!-- /SLIDE TOP -->
@@ -219,8 +231,11 @@
 
 				<!-- Logo -->
 				<a class="logo pull-left" href="index.html">
-					<img src="assets/images/logo-248.png" alt="Diana Cosmetology Logo" />
+					<img class="pull-left" src="assets/images/logo-248.png" alt="Diana Cosmetology Logo" />
 				</a>
+				<div class="logo" stype="line-height: 60px">
+					<p class="navbar-text ">Diana Cosmetology<br>WhatsApp:<a href="tel:+79139043917"> +7 (913) 904 3917</a></p>
+				</div>
 
 				<!--
                     Top Nav
@@ -242,9 +257,6 @@
                             </li>
                         -->
 						<ul id="topMain" class="nav nav-pills nav-main">
-							<li>
-								<a href = "#">Home</a>
-							</li>
 							<li>
 								<a href = "#">Продукция</a>
 							</li>
@@ -914,46 +926,48 @@
 				<div class="col-md-4">
 
 					<!-- Newsletter Form -->
-					<h4 class="letter-spacing-1">KEEP IN TOUCH</h4>
-					<p>Subscribe to Our Newsletter to get Important News &amp; Offers</p>
+					<h4 class="letter-spacing-1">ОСТАВАЙТЕСЬ НА СВЯЗИ!</h4>
+					<p>Подписывайтесь на нашу email рассылку чтобы получать важные новости и предложения о скидках:</p>
 
-					<form class="validate" action="php/newsletter.php" method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right">
+					<form class="validate" action="//diana.us14.list-manage.com/subscribe/post?u=23612c972951a008f00549046&amp;id=736326c324"
+						  method="post" data-success="Subscribed! Thank you!" data-toastr-position="bottom-right"
+						  id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" target="_blank" novalidate>
 						<div class="input-group">
 							<span class="input-group-addon"><i class="fa fa-envelope"></i></span>
-							<input type="email" id="email" name="email" class="form-control required" placeholder="Enter your Email">
+							<input type="email" id="mce-EMAIL" name="EMAIL" class="form-control required" placeholder="Введите здесь Ваш email">
+							<div id="mce-responses" class="clear">
+								<div class="response" id="mce-error-response" style="display:none"></div>
+								<div class="response" id="mce-success-response" style="display:none"></div>
+							</div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+							<div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_23612c972951a008f00549046_736326c324" tabindex="-1" value=""></div>
 							<span class="input-group-btn">
-										<button class="btn btn-success" type="submit">Subscribe</button>
-									</span>
+								<button id="mc-embedded-subscribe" class="btn btn-success" type="submit">Подписаться</button>
+							</span>
 						</div>
 					</form>
 					<!-- /Newsletter Form -->
 
 					<!-- Social Icons -->
 					<div class="margin-top-20">
-						<a href="#" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
+						<a href="http://instagram.com/diana_cosmetology" class="social-icon social-icon-border social-instagram pull-left" data-toggle="tooltip" data-placement="top" title="Instagram">
+							<i class="icon-instagram2"></i>
+							<i class="icon-instagram2"></i>
+						</a>
 
+						<a href="https://www.facebook.com/DianaCosmetology" class="social-icon social-icon-border social-facebook pull-left" data-toggle="tooltip" data-placement="top" title="Facebook">
 							<i class="icon-facebook"></i>
 							<i class="icon-facebook"></i>
 						</a>
 
-						<a href="#" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
+						<a href="http://twitter.com/diana_cosmeto" class="social-icon social-icon-border social-twitter pull-left" data-toggle="tooltip" data-placement="top" title="Twitter">
 							<i class="icon-twitter"></i>
 							<i class="icon-twitter"></i>
 						</a>
 
-						<a href="#" class="social-icon social-icon-border social-gplus pull-left" data-toggle="tooltip" data-placement="top" title="Google plus">
-							<i class="icon-gplus"></i>
-							<i class="icon-gplus"></i>
-						</a>
 
-						<a href="#" class="social-icon social-icon-border social-linkedin pull-left" data-toggle="tooltip" data-placement="top" title="Linkedin">
-							<i class="icon-linkedin"></i>
-							<i class="icon-linkedin"></i>
-						</a>
-
-						<a href="#" class="social-icon social-icon-border social-rss pull-left" data-toggle="tooltip" data-placement="top" title="Rss">
-							<i class="icon-rss"></i>
-							<i class="icon-rss"></i>
+						<a href="#" class="social-icon social-icon-border social-youtube pull-left" data-toggle="tooltip" data-placement="top" title="YouTube">
+							<i class="icon-youtube"></i>
+							<i class="icon-youtube"></i>
 						</a>
 
 					</div>
@@ -967,12 +981,7 @@
 
 		<div class="copyright">
 			<div class="container">
-				<ul class="pull-right nomargin list-inline mobile-block">
-					<li><a href="#">Terms &amp; Conditions</a></li>
-					<li>&bull;</li>
-					<li><a href="#">Privacy</a></li>
-				</ul>
-				&copy; All Rights Reserved, Company LTD
+				&copy; 2016, ООО "Диана"
 			</div>
 		</div>
 	</footer>
@@ -997,10 +1006,9 @@
 <!-- JAVASCRIPT FILES -->
 <script type="text/javascript">var plugin_path = 'assets/plugins/';</script>
 <script type="text/javascript" src="assets/plugins/jquery/jquery-2.2.3.min.js"></script>
-
 <script type="text/javascript" src="assets/js/scripts.js"></script>
 
-<!-- STYLESWITCHER - REMOVE -->
+<!-- STYLESWITCHER - REMOVE ->
 <script async type="text/javascript" src="assets/plugins/styleswitcher/styleswitcher.js"></script>
 
 
@@ -1008,5 +1016,47 @@
 <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js"></script>
 <script type="text/javascript" src="assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js"></script>
 <script type="text/javascript" src="assets/js/view/demo.revolution_slider.js"></script>
+
+
+<script>
+
+$( function(){
+	console.log( 'Init handers' )
+	var frm = $('#mc-embedded-subscribe-form');
+	frm.submit( function (ev) {
+		console.log( 'my submit' )
+		ev.preventDefault();
+		frm.find('.input-group-addon').find('.fa-envelope').removeClass('fa-envelope').addClass('fa-refresh fa-spin');
+
+
+		$.ajax({
+			url: "http://diana.us14.list-manage.com/subscribe/post-json?u=23612c972951a008f00549046&id=7987bd1e8e",
+			data: frm.serialize()+'&c=?',
+			dataType: 'jsonp',
+			success: function (data) {
+				console.log( 'ok')
+				frm.find('.input-group-addon').find('.fa-refresh').removeClass('fa-refresh fa-spin').addClass('fa-envelope');
+
+					if (data['result'] != "success") {
+						//ERROR
+						console.log(data['msg']);
+						_toastr("Subscribe Failed!", "bottom-right","error",false);
+					} else {
+						//SUCCESS - Do what you like here
+						_toastr("Subscribed!", "bottom-right","success",false);
+					}
+			},
+			error: function( jqXHR, textStatus, errorThrown) {
+				console.log('error')
+				frm.find('.input-group-addon').find('.fa-refresh').removeClass('fa-refresh fa-spin').addClass('fa-envelope');
+				_toastr("Ajax error:" + textStatus + errorThrown, "bottom-right","error",false);
+			}
+		});
+
+	})
+});
+
+</script>
+
 </body>
 </html>

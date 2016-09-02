@@ -97,7 +97,7 @@
 		_toastr(false,false,false,false);
 		_charts();
 		_select2();
-		_form();
+		//_form();
 		_pickers();
 		_editors();
 		_pajinate();
