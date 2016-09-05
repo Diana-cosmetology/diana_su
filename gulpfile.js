@@ -80,7 +80,8 @@ const connection = {
   host: process.env.FTP_HOST,
   port: 21,
   sourcePath: [build.base + allGlob],
-  destPath: process.env.FTP_PATH
+  destPath: process.env.FTP_PATH,
+  maxConnections: process.env.FTP_CONNNECTIONS || 3
 }
 
 // helper function for building ftp connection:
@@ -90,7 +91,7 @@ function getFtpConnection() {
     port: connection.port,
     user: connection.user,
     password: connection.password,
-    parallel: 5,
+    parallel: connection.maxConnections,
     log: gutil.log
   });
 }
