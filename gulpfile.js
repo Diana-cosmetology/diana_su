@@ -1,16 +1,18 @@
 'use strict';
-require('dotenv-safe').load();
-const gulp = require('gulp');
-const del = require('del');
-const imagemin = require('gulp-imagemin');
-const browserSync = require('browser-sync').create();
-const ftp = require('vinyl-ftp');
-const gutil = require( 'gulp-util' );
-const runSequence = require('run-sequence');
-const critical = require('critical');
-const cleanCSS = require('gulp-clean-css');
-const htmlmin = require('gulp-htmlmin');
-const minify = require('gulp-minify');
+
+require('dotenv-safe').load()
+const gulp = require('gulp')
+const del = require('del')
+const imagemin = require('gulp-imagemin')
+const browserSync = require('browser-sync').create()
+const ftp = require('vinyl-ftp')
+const gutil = require( 'gulp-util' )
+const runSequence = require('run-sequence')
+const critical = require('critical')
+const cleanCSS = require('gulp-clean-css')
+const htmlmin = require('gulp-htmlmin')
+const minify = require('gulp-minify')
+const pug = require('gulp-pug')
 
 const allGlob = '/**/*';
 
@@ -28,6 +30,9 @@ source.jsFiles = source.js + '/**/*.js'; // only js files inside source folder
 source.robotsFile = source.base + '/robots.txt'
 source.sitemapFile = source.base + '/sitemap.*'
 source.pluginsAll = source.base + '/assets/plugins/**/*.*'
+source.templates = source.base + '/pages/templates'
+source.templatePages = source.base + '/pages/*.pug'
+source.templatesAll = source.templates + '/**/*.pug'
 
 var build = { base: './build' }
 build.css = build.base + '/assets/css'
@@ -63,7 +68,9 @@ var task = {
   publishWatch: 'publish-watch',
   reload: 'reload-browser',
   critical: 'critical-css',
-  processPlugins: 'process-plugins'
+  processPlugins: 'process-plugins',
+  processTemplatePages: 'process-template-pages',
+  watchTemplates: 'watch-templates'
 }
 
 // configuration for publish to FTP:
@@ -97,7 +104,7 @@ gulp.task( task.processAll, function(done) {
   runSequence( 
     task.clean,
     task.processImg, task.processFonts, task.processCss , task.processHtml, task.processJs,
-    task.processPlugins, task.processOther,
+    task.processPlugins, task.processOther, task.processTemplatePages,
     task.reload,
     done
   );
@@ -149,6 +156,14 @@ gulp.task( task.processHtml, function () {
     .pipe( gulp.dest( build.base ));
 });
 
+// Templates:
+gulp.task( task.processTemplatePages, function () {
+  return gulp.src( source.templatePages  )
+    .pipe(pug( { basedir: source.templates }))
+    .pipe( gulp.dest( build.base ));
+});
+
+
 // JS: process js
 gulp.task( task.processJs, function () {
   return gulp.src( source.jsFiles  )
@@ -189,6 +204,7 @@ gulp.task( task.watchCss, [ task.processCss ], reloadAndPublish );
 gulp.task( task.watchJs, [ task.processJs ], reloadAndPublish );
 gulp.task( task.watchOther, [ task.processOther ], reloadAndPublish );
 gulp.task( task.watchPlugins, [ task.processPlugins ], reloadAndPublish );
+gulp.task( task.watchTemplates, [ task.processTemplatePages ], reloadAndPublish );
 
 // Start webserver with live reloading:
 gulp.task(task.webserver, [task.processAll], function() {
@@ -209,6 +225,7 @@ gulp.task(task.webserver, [task.processAll], function() {
   gulp.watch( source.robotsFile, [ task.watchOther ] );
   gulp.watch( source.sitemapFile, [ task.watchOther ] );
   gulp.watch( source.pluginsAll, [ task.watchPlugins ] );
+  gulp.watch( source.templatesAll, [ task.watchTemplates ] );
 });
 
 // PUBLISH: upload files to FTP
@@ -229,9 +246,9 @@ gulp.task( task.critical, [ task.processAll], function (done) {
   console.log( 'Start generating critical CSS');
   critical.generate({
     inline: true,
-    base: './original/index.html',
+    base: './original/index-old.html',
     src: 'index.html',
-    dest: source.base + '/index.html',
+    dest: source.base + '/index-old.html',
     minify: true,
     width: 320,
     height: 480

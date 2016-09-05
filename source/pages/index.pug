@@ -1,0 +1,35 @@
+extends /layout.pug
+
+block content
+    //
+      CALLOUT
+      FULLWIDTH: OUTSIDE OF <section>
+      Available Classes:
+      alert-transparent
+      alert-default
+      alert-info
+      alert-warning
+      alert-danger
+      alert-success
+      alert-dark
+      bordered-bottom
+      bordered-top
+    .alert.alert-success.bordered-bottom.nomargin
+        .container
+            .row
+                .col-md-9.col-sm-12
+                    // left text
+                    h3
+                        | Звоните по мобильному / WhatsApp:
+                        span
+                            strong  +7 (913) 904-3917
+                        |  и получайте скидку 10% весь сентябрь.
+                    p.font-lato.weight-300.size-20.nomargin-bottom
+                        | Мы гордимся нашей продукцией и любим наших клиентов!
+                // /left text
+                .col-md-3.col-sm-12.text-right
+                    // right btn
+                    a.btn.btn-success.btn-lg(href='tel:+79139043917', rel='nofollow', target='_blank') ПОЗВОНИТЬ!
+                // /right btn
+
+

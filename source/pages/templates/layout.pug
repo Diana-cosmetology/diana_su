@@ -1,0 +1,111 @@
+doctype html
+<!--[if IE 8]>			<html class="ie ie8"> <![endif]-->
+<!--[if IE 9]>			<html class="ie ie9"> <![endif]-->
+<!--[if gt IE 9]><!-->
+html
+<!--<![endif]-->
+    head
+        meta(charset='utf-8')
+
+        meta(name='keywords', content='мезотерапия, биоревитализация')
+        meta(name='description', content='Компания Диана Косметология (Diana Cosmetology). Всё для мезотерапии, биоревитализации и контурной пластики')
+        meta(name='Author', content='deksden.com')
+
+        // Mobile settings
+        meta(name='viewport', content='width=device-width, maximum-scale=1, initial-scale=1.0, user-scalable=0')
+        <!--[if IE]><meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'><![endif]-->
+
+        meta(name='theme-color' content='#4DA5F4')
+
+
+        title #{title} Diana Cosmetology - Диана Косметология - Всё для мезотерапии, биоревитализации и контурной пластики
+
+        include /partials/favicons.pug
+
+        block headCss
+            // web fonts:
+            link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700', rel='stylesheet', type='text/css')
+
+            // core CSS:
+            link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+
+            // slider.revolution
+            link(href='assets/plugins/slider.revolution/css/extralayers.css', rel='stylesheet', type='text/css')
+            link(href='assets/plugins/slider.revolution/css/settings.css', rel='stylesheet', type='text/css')
+
+            // theme CSS:
+            link(href='assets/css/essentials.css', rel='stylesheet', type='text/css')
+            link(href='assets/css/layout.css', rel='stylesheet', type='text/css')
+
+            // page-level CSS:
+            link(href='assets/css/header-1.css', rel='stylesheet', type='text/css')
+            link#color_scheme(href='assets/css/color_scheme/blue.css', rel='stylesheet', type='text/css')
+
+
+        block headScripts
+
+    body.smoothscroll.enable-animation
+        #wrapper
+            include /partials/header.pug
+
+            block content
+
+            include /partials/footer.pug
+
+            // SCROLL TO TOP
+            a#toTop(href='#')
+
+            // PRELOADER
+            #preloader
+                .inner
+                    span.loader
+
+            block scripts
+                // JAVASCRIPT FILES
+                script.
+                    var plugin_path = 'assets/plugins/'
+
+                script(type='text/javascript', src='assets/plugins/jquery/jquery-2.2.3.min.js')
+                script(type='text/javascript', src='assets/js/scripts.js')
+
+                // REVOLUTION SLIDER
+                script(type='text/javascript', src='assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js')
+                script(type='text/javascript', src='assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js')
+                script(type='text/javascript', src='assets/js/view/demo.revolution_slider.js')
+
+                script.
+                    $(function () {
+                        console.log('Init handers')
+                        var frm = $('#mc-embedded-subscribe-form');
+                        frm.submit(function (ev) {
+                            console.log('my submit')
+                            ev.preventDefault();
+                            frm.find('.input-group-addon').find('.fa-envelope').removeClass('fa-envelope').addClass('fa-refresh fa-spin');
+                            $.ajax({
+                                url: "http://diana.us14.list-manage.com/subscribe/post-json?u=23612c972951a008f00549046&id=7987bd1e8e",
+                                data: frm.serialize() + '&c=?',
+                                dataType: 'jsonp',
+                                success: function (data) {
+                                    console.log('ok')
+                                    frm.find('.input-group-addon').find('.fa-refresh').removeClass('fa-refresh fa-spin').addClass('fa-envelope');
+                                    if (data['result'] != "success") {
+                                        //ERROR
+                                        console.log(data['msg']);
+                                        _toastr("Subscribe Failed!", "bottom-right", "error", false);
+                                    } else {
+                                        //SUCCESS - Do what you like here
+                                        _toastr("Subscribed!", "bottom-right", "success", false);
+                                    }
+                                },
+                                error: function (jqXHR, textStatus, errorThrown) {
+                                    console.log('error')
+                                    frm.find('.input-group-addon').find('.fa-refresh').removeClass('fa-refresh fa-spin').addClass('fa-envelope');
+                                    _toastr("Ajax error:" + textStatus + errorThrown, "bottom-right", "error", false);
+                                }
+                            });
+                        })
+                    });
+
+
+
+

@@ -1,0 +1,25 @@
+#header.sticky.clearfix
+    // TOP NAV
+    header#topNav
+        .container
+            // Mobile Menu Button
+            button.btn.btn-mobile(data-toggle='collapse', data-target='.nav-main-collapse')
+                i.fa.fa-bars
+            // Logo
+            a.logo.pull-left(href='index-old.html')
+                img.pull-left(src='assets/images/logo-248.png', alt='Diana Cosmetology Logo')
+            .logo(stype='line-height: 60px')
+                p.navbar-text
+                    | Diana Cosmetology
+                    br
+                    | Tel/WhatsApp:
+                    a(href='tel:+79139043917')  +7 (913) 904-39-17
+            .navbar-collapse.pull-right.nav-main-collapse.collapse
+                nav.nav-main
+                    ul#topMain.nav.nav-pills.nav-main
+                        li
+                            a(href='#') Продукция
+                        li
+                            a(href='#') Новости
+                        li
+                            a(href='#') Контакты
