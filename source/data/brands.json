@@ -1,10 +1,19 @@
 [
   {
-    "name": "Caregene",
-    "country": "Южная Корея".
+    "brandId": "caregen",
+    "name": "Caregen LTD",
+    "country": "Южная Корея",
+    "logo": "caregen.png",
     "brands": [
-      { "name": "AQUASHINE" },
-      { "name": "REVOFIL" }
+      { "id": "aquashine" }
     ]
+  },
+
+  {
+    "brandId": "aquashine",
+    "parentId": "caregen",
+    "name": "AQUASHINE",
+    "description": "",
+    "logo": "aquashine.png"
   }
 ]
