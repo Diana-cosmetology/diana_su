@@ -4,6 +4,7 @@ doctype html
 <!--[if gt IE 9]><!-->
 html
 <!--<![endif]-->
+
     head
         meta(charset='utf-8')
 
@@ -27,19 +28,19 @@ html
             link(href='https://fonts.googleapis.com/css?family=Open+Sans:300,400%7CRaleway:300,400,500,600,700%7CLato:300,400,400italic,600,700', rel='stylesheet', type='text/css')
 
             // core CSS:
-            link(href='assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
+            link(href='/assets/plugins/bootstrap/css/bootstrap.min.css', rel='stylesheet', type='text/css')
 
             // slider.revolution
-            link(href='assets/plugins/slider.revolution/css/extralayers.css', rel='stylesheet', type='text/css')
-            link(href='assets/plugins/slider.revolution/css/settings.css', rel='stylesheet', type='text/css')
+            link(href='/assets/plugins/slider.revolution/css/extralayers.css', rel='stylesheet', type='text/css')
+            link(href='/assets/plugins/slider.revolution/css/settings.css', rel='stylesheet', type='text/css')
 
             // theme CSS:
-            link(href='assets/css/essentials.css', rel='stylesheet', type='text/css')
-            link(href='assets/css/layout.css', rel='stylesheet', type='text/css')
+            link(href='/assets/css/essentials.css', rel='stylesheet', type='text/css')
+            link(href='/assets/css/layout.css', rel='stylesheet', type='text/css')
 
             // page-level CSS:
-            link(href='assets/css/header-1.css', rel='stylesheet', type='text/css')
-            link#color_scheme(href='assets/css/color_scheme/blue.css', rel='stylesheet', type='text/css')
+            link(href='/assets/css/header-1.css', rel='stylesheet', type='text/css')
+            link#color_scheme(href='/assets/css/color_scheme/blue.css', rel='stylesheet', type='text/css')
 
 
         block headScripts
@@ -63,22 +64,20 @@ html
             block scripts
                 // JAVASCRIPT FILES
                 script.
-                    var plugin_path = 'assets/plugins/'
+                    var plugin_path = '/assets/plugins/'
 
-                script(type='text/javascript', src='assets/plugins/jquery/jquery-2.2.3.min.js')
-                script(type='text/javascript', src='assets/js/scripts.js')
+                script(type='text/javascript', src='/assets/plugins/jquery/jquery-2.2.3.min.js')
+                script(type='text/javascript', src='/assets/js/scripts.js')
 
                 // REVOLUTION SLIDER
-                script(type='text/javascript', src='assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js')
-                script(type='text/javascript', src='assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js')
-                script(type='text/javascript', src='assets/js/view/demo.revolution_slider.js')
+                script(type='text/javascript', src='/assets/plugins/slider.revolution/js/jquery.themepunch.tools.min.js')
+                script(type='text/javascript', src='/assets/plugins/slider.revolution/js/jquery.themepunch.revolution.min.js')
+                script(type='text/javascript', src='/assets/js/view/demo.revolution_slider.js')
 
                 script.
                     $(function () {
-                        console.log('Init handers')
                         var frm = $('#mc-embedded-subscribe-form');
                         frm.submit(function (ev) {
-                            console.log('my submit')
                             ev.preventDefault();
                             frm.find('.input-group-addon').find('.fa-envelope').removeClass('fa-envelope').addClass('fa-refresh fa-spin');
                             $.ajax({

@@ -15,6 +15,7 @@ const minify = require('gulp-minify')
 const pug = require('gulp-pug')
 const _ = require('lodash')
 const rename = require('gulp-rename')
+const path = require('path')
 
 const allGlob = '/**/*';
 
@@ -173,10 +174,10 @@ gulp.task( task.processCatalog, function (done) {
         basedir: source.templates,
         locals: {
           categories: categories,
-          active_category: "",
+          active_category: item,
           active_item: ""
         } } ))
-      .pipe( rename( item.name) )
+      .pipe( rename( path.format( { name:item.url, ext: '.html' } )))
       .pipe( gulp.dest( build.base + '/catalog/') )
   })
 

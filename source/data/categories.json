@@ -1,7 +1,7 @@
 [
   {
     "name": "Мезопрепараты",
-
+    "url": "mesopreparaty",
     "items": [
       {
         "name": "Dermaheal"
@@ -17,6 +17,7 @@
 
   {
     "name": "Биоревитализанты",
+    "url": "biorevitalizanty",
     "items": [
       {
         "name": "Aquashine"
@@ -38,6 +39,8 @@
 
   {
     "name": "Филлеры",
+    "url": "fillery",
+
     "items": [
       {
         "name": "Revofil"
@@ -56,6 +59,7 @@
 
   {
     "name": "Анестетики",
+    "url": "anestetiki",
     "items": [
       {
         "name": "Progelcaine"
@@ -65,6 +69,7 @@
 
   {
     "name": "Карбокситерапия",
+    "url": "carboxy",
     "items": [
       {
         "name": "TX Double Effect"
@@ -74,6 +79,7 @@
 
   {
     "name": "Патчи",
+    "url": "patchy",
     "items": [
       {
         "name": "Univello patch"
@@ -82,6 +88,7 @@
   },
   {
     "name": "Косметика",
+    "url": "kosmetika",
     "items": [
       {
         "name": "PROPEPTIDE гель"
