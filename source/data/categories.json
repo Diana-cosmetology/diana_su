@@ -1,12 +1,92 @@
 [
-  { "name": "Мезопрепараты" },
-  { "name": "Био-ревитализанты" },
-  { "name": "Филлеры" },
-  { "name": "Мезо-нити" },
-  { "name": "Анестетики" },
-  { "name": "Пилинги" },
-  { "name": "Уходовая косметика" },
-  { "name": "СПА-косметика" },
-  { "name": "Вспомогательные материалы" }
+  {
+    "name": "Мезопрепараты",
+
+    "items": [
+      {
+        "name": "Dermaheal"
+      },
+      {
+        "name": "REVI"
+      },
+      {
+        "name": "AMALAIN"
+      }
+    ]
+  },
+
+  {
+    "name": "Биоревитализанты",
+    "items": [
+      {
+        "name": "Aquashine"
+      },
+      {
+        "name": "Revi"
+      },
+      {
+        "name": "AMALAIN"
+      },
+      {
+        "name": "RENEALL"
+      },
+      {
+        "name": "Princess"
+      }
+    ]
+  },
+
+  {
+    "name": "Филлеры",
+    "items": [
+      {
+        "name": "Revofil"
+      },
+      {
+        "name": "Princess"
+      },
+      {
+        "name": "Amalain"
+      },
+      {
+        "name": "Reneall"
+      }
+    ]
+  },
+
+  {
+    "name": "Анестетики",
+    "items": [
+      {
+        "name": "Progelcaine"
+      }
+    ]
+  },
+
+  {
+    "name": "Карбокситерапия",
+    "items": [
+      {
+        "name": "TX Double Effect"
+      }
+    ]
+  },
+
+  {
+    "name": "Патчи",
+    "items": [
+      {
+        "name": "Univello patch"
+      }
+    ]
+  },
+  {
+    "name": "Косметика",
+    "items": [
+      {
+        "name": "PROPEPTIDE гель"
+      }
+    ]
+  }
 ]
 

@@ -13,6 +13,8 @@ const cleanCSS = require('gulp-clean-css')
 const htmlmin = require('gulp-htmlmin')
 const minify = require('gulp-minify')
 const pug = require('gulp-pug')
+const _ = require('lodash')
+const rename = require('gulp-rename')
 
 const allGlob = '/**/*';
 
@@ -32,7 +34,7 @@ source.sitemapFile = source.base + '/sitemap.*'
 source.pluginsAll = source.base + '/assets/plugins/**/*.*'
 source.templates = source.base + '/pages/templates'
 source.templatePages = source.base + '/pages/*.pug'
-source.templatesAll = source.templates + '/**/*.pug'
+source.templatesAll = source.base + '/pages/**/*.pug'
 
 var build = { base: './build' }
 build.css = build.base + '/assets/css'
@@ -47,6 +49,8 @@ build.imgFiles = [
 build.fonts = build.base + '/assets//fonts'
 build.js = build.base + '/assets/js'
 build.plugins = build.base + '/assets/plugins'
+build.catalog = build.base + '/catalog'
+
 
 // config var for task names:
 var task = {
@@ -70,7 +74,8 @@ var task = {
   critical: 'critical-css',
   processPlugins: 'process-plugins',
   processTemplatePages: 'process-template-pages',
-  watchTemplates: 'watch-templates'
+  watchTemplates: 'watch-templates',
+  processCatalog: 'process-catalog'
 }
 
 // configuration for publish to FTP:
@@ -106,6 +111,7 @@ gulp.task( task.processAll, function(done) {
     task.clean,
     task.processImg, task.processFonts, task.processCss , task.processHtml, task.processJs,
     task.processPlugins, task.processOther, task.processTemplatePages,
+    task.processCatalog,
     task.reload,
     done
   );
@@ -156,6 +162,27 @@ gulp.task( task.processHtml, function () {
     .pipe(htmlmin({collapseWhitespace: true}))
     .pipe( gulp.dest( build.base ));
 });
+
+// Catalog: Generate catalog
+gulp.task( task.processCatalog, function (done) {
+  let categories = require( './source/data/categories.json' )
+
+  _.each( categories, ( item ) => {
+    gulp.src( source.templates + '/cards.pug' )
+      .pipe( pug( {
+        basedir: source.templates,
+        locals: {
+          categories: categories,
+          active_category: "",
+          active_item: ""
+        } } ))
+      .pipe( rename( item.name) )
+      .pipe( gulp.dest( build.base + '/catalog/') )
+  })
+
+  done()
+});
+
 
 // Templates:
 gulp.task( task.processTemplatePages, function () {

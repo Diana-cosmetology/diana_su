@@ -1,7 +1,20 @@
 [
   {
-    "productId": 1,
-    "brandId": 2,
-    "name": "AQUASHINE"
+    "productId": "aquashine",
+    "brandId": "aquashine",
+    "name": "AQUASHINE",
+    "description": "",         // общее описание препарата
+    "indications": "",         // показания к применению
+    "contraindications": "",   // противопоказания
+    "composition": "",         // состав препарата
+    "instructions": "",        // инструкции по применению
+    "storage": "",            // условия хранения и перевозки
+    "images": [
+      {  "caption": "", "url": "" }
+    ],
+    "links": [
+      { "caption": "", "url": "" }
+    ]
+
   }
 ]

@@ -1,0 +1,735 @@
+extends /layout.pug
+
+append headCss
+    link(href='assets/css/layout-shop.css', rel='stylesheet', type='text/css')
+    link#color_scheme(href='assets/css/color_scheme/blue.css', rel='stylesheet', type='text/css')
+
+block content
+    section
+        .container
+            .row
+                // RIGHT
+                .col-lg-9.col-md-9.col-sm-9.col-lg-push-3.col-md-push-3.col-sm-push-3
+
+                    // CAROUSEL
+                    .owl-carousel.buttons-autohide.controlls-over.margin-bottom-30.radius-4(data-plugin-options='{"singleItem": true, "autoPlay": 6000, "navigation": true, "pagination": true, "transitionStyle":"fade"}')
+                        // item
+                        div
+                            .caption-slider-default
+                                .display-table
+                                    .display-table-cell.vertical-align-middle
+                                        .caption-container.text-left
+                                            h2
+                                                | SHOP
+                                                strong NOW
+                                                |  – 50% OFF
+                                            p
+                                                | This is a category banner rotator
+                                                br
+                                                |                                                        for any category of your shop.
+                            img.img-responsive.radius-4(src='assets/images/demo/shop/banners/top_2.png', width='851', height='335', alt='')
+
+                        // item
+                        div
+                            .caption-slider-default
+                                .display-table
+                                    .display-table-cell.vertical-align-middle
+                                        .caption-container.text-left
+                                            h2
+                                                | LOREM IPSUM
+                                                strong DOLOR
+                                            p
+                                                | Unlimited designs, unlimited combinations
+                                                br
+                                                |                                                        imagination is the limit!
+                            img.img-responsive.radius-4(src='assets/images/demo/shop/banners/top_1.png', width='851', height='335', alt='')
+
+                    // LIST OPTIONS
+                    .clearfix.shop-list-options.margin-bottom-20
+                        ul.pagination.nomargin.pull-right.hide
+                            li
+                                a(href='#') «
+                            li.active
+                                a(href='#') 1
+                            li
+                                a(href='#') 2
+                            li
+                                a(href='#') 3
+                            li
+                                a(href='#') 4
+                            li
+                                a(href='#') »
+                        .options-left
+                            select.hide
+                                option(value='pos_asc') Position ASC
+                                option(value='pos_desc') Position DESC
+                                option(value='name_asc') Name ASC
+                                option(value='name_desc') Name DESC
+                                option(value='price_asc') Price ASC
+                                option(value='price_desc') Price DESC
+                            a.btn.fa.fa-th.active(href='#')
+                            a.btn.fa.fa-list(href='catalog-list.html')
+
+                    // LIST 3 columns
+                    ul.shop-item-list.row.list-inline.nomargin
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p13.jpg', alt='shop first image')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p14.jpg', alt='shop hover image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='1', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='1', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // product more info
+                                    .shop-item-info
+                                        span.label.label-success NEW
+                                        span.label.label-danger SALE
+                                    // /product more info
+                                .shop-item-summary.text-center
+                                    h2 Cotton 100% - Pink Shirt
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        span.line-through $98.00
+                                        |                                                $78.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p11.jpg', alt='shop hover image')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p3.jpg', alt='shop first image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='2', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='2', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                .shop-item-summary.text-center
+                                    h2 Black Long Lady Shirt
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-0.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $128.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    span.out-of-stock out of stock
+                                    // add .clean to remove css characteres
+                                // /buttons
+
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p12.jpg', alt='shop first image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='3', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='3', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // countdown
+                                    .shop-item-counter
+                                        .countdown(data-from='January 31, 2018 15:03:26', data-labels='years,months,weeks,days,hour,min,sec')
+                                            // Example Date From: December 31, 2018 15:03:26
+                                    // /countdown
+                                .shop-item-summary.text-center
+                                    h2 Night Dress For Ladies
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-1.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $34.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        // CAROUSEL
+                                        .owl-carousel.nomargin(data-plugin-options='{"singleItem": true, "autoPlay": 3000, "navigation": false, "pagination": false, "transitionStyle":"fadeUp"}')
+                                            img.img-responsive(src='assets/images/demo/shop/products/300x450/p10.jpg', alt='')
+                                            img.img-responsive(src='assets/images/demo/shop/products/300x450/p1.jpg', alt='')
+                                            img.img-responsive(src='assets/images/demo/shop/products/300x450/p14.jpg', alt='')
+                                        // /CAROUSEL
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='4', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='4', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // product more info
+                                    .shop-item-info
+                                        span.label.label-success NEW
+                                    // /product more info
+                                .shop-item-summary.text-center
+                                    h2 Long Grey Dress - Special
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-5.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $76.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p9.jpg', alt='shop first image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='5', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='5', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // product more info
+                                    .shop-item-info
+                                        span.label.label-danger SALE
+                                    // /product more info
+                                .shop-item-summary.text-center
+                                    h2 Grey Lady Hat
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        span.line-through $67.00
+                                        |                                                $21.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p8.jpg', alt='shop first image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='6', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='6', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // countdown
+                                    .shop-item-counter
+                                        .countdown(data-from='December 31, 2017 08:22:01', data-labels='years,months,weeks,days,hour,min,sec')
+                                            // Example Date From: December 31, 2018 15:03:26
+                                    // /countdown
+                                .shop-item-summary.text-center
+                                    h2 Beach Black Lady Suit
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $56.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p6.jpg', alt='shop first image')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p14.jpg', alt='shop hover image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='8', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='8', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                .shop-item-summary.text-center
+                                    h2 Chick Lady Fashion
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $167.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p11.jpg', alt='shop first image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='11', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='11', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // countdown
+                                    .shop-item-counter
+                                        .countdown(data-from='January 12, 2018 12:34:55', data-labels='years,months,weeks,days,hour,min,sec')
+                                            // Example Date From: December 31, 2018 15:03:26
+                                    // /countdown
+                                .shop-item-summary.text-center
+                                    h2 Long Black Top
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        | $99.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+                        // ITEM
+                        li.col-lg-4.col-sm-4
+                            .shop-item
+                                .thumbnail
+                                    // product image(s)
+                                    a.shop-item-image(href='shop-single-left.html')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p2.jpg', alt='shop first image')
+                                        img.img-responsive(src='assets/images/demo/shop/products/300x450/p12.jpg', alt='shop hover image')
+                                    // /product image(s)
+                                    // hover buttons
+                                    .shop-option-over
+                                        // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                                        a.btn.btn-default.add-wishlist(href='#', data-item-id='12', data-toggle='tooltip', title='Add To Wishlist')
+                                            i.fa.fa-heart.nopadding
+                                        a.btn.btn-default.add-compare(href='#', data-item-id='12', data-toggle='tooltip', title='Add To Compare')
+                                            i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+                                    // /hover buttons
+                                    // product more info
+                                    .shop-item-info
+                                        span.label.label-success NEW
+                                        span.label.label-danger SALE
+                                    // /product more info
+                                .shop-item-summary.text-center
+                                    h2 Black Fashion Hat
+                                    // rating
+                                    .shop-item-rating-line
+                                        .rating.rating-4.size-13
+                                            // rating-0 ... rating-5
+                                    // /rating
+                                    // price
+                                    .shop-item-price
+                                        span.line-through $77.00
+                                        |                                                $65.00
+                                    // /price
+                                // buttons
+                                .shop-item-buttons.text-center
+                                    a.btn.btn-default(href='shop-cart.html')
+                                        i.fa.fa-cart-plus
+                                        |  Add to Cart
+                                // /buttons
+                        // /ITEM
+
+                    // Pagination Default
+                    hr.hide
+                    .text-center.hide
+                        ul.pagination
+                            li
+                                a(href='#') «
+                            li.active
+                                a(href='#') 1
+                            li
+                                a(href='#') 2
+                            li
+                                a(href='#') 3
+                            li
+                                a(href='#') 4
+                            li
+                                a(href='#') 5
+                            li
+                                a(href='#') »
+
+                // LEFT
+                .col-lg-3.col-md-3.col-sm-3.col-lg-pull-9.col-md-pull-9.col-sm-pull-9
+
+                    // CATEGORIES
+                    .side-nav.margin-bottom-60
+                        .side-nav-head
+                            button.fa.fa-bars
+                            h4 КАТЕГОРИИ
+                        ul.list-group.list-group-bordered.list-group-noicon.uppercase
+                            li.list-group-item.active
+                                a.dropdown-toggle(href='#') Мезопрепараты
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (123)
+                                            |  Shoes & Boots
+                                    li.active
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (331)
+                                            |  Top & Blouses
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (234)
+                                            |  Dresses & Skirts
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Биоревитализанты
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Accessories
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (67)
+                                            |  Shoes & Boots
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (32)
+                                            |  Dresses & Skirts
+                                    li.active
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (78)
+                                            |  Top & Blouses
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Филлеры
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (23)
+                                            |  Dresses & Skirts
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (34)
+                                            |  Shoes & Boots
+                                    li.active
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (21)
+                                            |  Top & Blouses
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Accessories
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Мезонити
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Shoes & Boots
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Анестетики
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Shoes & Boots
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Пилинги
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Shoes & Boots
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Косметика
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Shoes & Boots
+                            li.list-group-item
+                                a.dropdown-toggle(href='#') Материалы
+                                ul
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (88)
+                                            |  Shoes & Boots
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (22)
+                                            |  Dresses & Skirts
+                                    li
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (31)
+                                            |  Accessories
+                                    li.active
+                                        a(href='#')
+                                            span.size-11.text-muted.pull-right (18)
+                                            |  Top & Blouses
+
+                    // SIZE
+                    .margin-bottom-60.hide
+                        h4 SIZE
+                        a.tag(href='#')
+                            span.txt S
+                        a.tag(href='#')
+                            span.txt.bold M
+                        a.tag(href='#')
+                            span.txt L
+                        a.tag(href='#')
+                            span.txt XL
+                        a.tag(href='#')
+                            span.txt 2XL
+                        a.tag(href='#')
+                            span.txt 3XL
+                        hr
+                        .clearfix.size-12
+                            a.pull-right.glyphicon.glyphicon-remove(href='#')
+                            |                                    SELECTED SIZE:
+                            strong M
+                    // /SIZE
+
+                    // COLOR
+                    .margin-bottom-60.hide
+                        h4 COLOR
+                        a.tag.shop-color(href='#', style='background-color:#000000')
+                        a.tag.shop-color(href='#', style='background-color:#FFFFFF')
+                        a.tag.shop-color(href='#', style='background-color:#C0C0C0')
+                        a.tag.shop-color(href='#', style='background-color:#0000E0')
+                        a.tag.shop-color(href='#', style='background-color:#800080')
+                        a.tag.shop-color(href='#', style='background-color:#FF0000')
+                        a.tag.shop-color(href='#', style='background-color:#FF0080')
+                        a.tag.shop-color(href='#', style='background-color:#FF6600')
+                        a.tag.shop-color(href='#', style='background-color:#E0DCC8')
+                        a.tag.shop-color(href='#', style='background-color:#F0E68C')
+                        a.tag.shop-color(href='#', style='background-color:#FFFFD0')
+                        a.tag.shop-color(href='#', style='background-color:#4B0082')
+                        a.tag.shop-color(href='#', style='background-color:#666666')
+                        a.tag.shop-color(href='#', style='background-color:#00FF00')
+                        a.tag.shop-color(href='#', style='background-color:#36454F')
+                        a.tag.shop-color(href='#', style='background-color:#F4A460')
+                        a.tag.shop-color(href='#', style='background-color:#0088CC')
+                        a.tag.shop-color(href='#', style='background-color:#B38B6D')
+                        hr
+                        .clearfix.size-12
+                            a.pull-right.glyphicon.glyphicon-remove(href='#')
+                            |                                    SELECTED COLOR:
+                            strong Red
+                    // /COLOR
+
+                    // BRANDS
+                    .side-nav.margin-bottom-60
+                        .side-nav-head
+                            button.fa.fa-bars
+                            h4 BRANDS
+                        ul.list-group.list-unstyled
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (21)
+                                    |  AQUASHINE
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (44)
+                                    |  AMALAN
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (2)
+                                    |  REVI
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (18)
+                                    |  Ralph Lauren
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (87)
+                                    |  Lotto
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (32)
+                                    |  Fila
+                            li.list-group-item
+                                a(href='#')
+                                    span.size-11.text-muted.pull-right (69)
+                                    |  Boss
+
+                    // BANNER ROTATOR
+                    .owl-carousel.buttons-autohide.controlls-over.margin-bottom-60.text-center(data-plugin-options='{"singleItem": true, "autoPlay": 4000, "navigation": true, "pagination": false, "transitionStyle":"goDown"}')
+                        a(href='#')
+                            img.img-responsive(src='assets/images/demo/shop/banners/off_1.png', width='270', height='350', alt='')
+                        a(href='#')
+                            img.img-responsive(src='assets/images/demo/shop/banners/off_2.png', width='270', height='350', alt='')
+
+                    // FEATURED
+                    .margin-bottom-60
+                        h2.owl-featured FEATURED
+                        .owl-carousel.featured(data-plugin-options='{"singleItem": true, "stopOnHover":false, "autoPlay":false, "autoHeight": false, "navigation": true, "pagination": false}')
+                            // SLIDE 1
+                            div
+                                ul.list-unstyled.nomargin.nopadding.text-left
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p10.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-12(href='#') Long Grey Dress - Special
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $132.00
+                                    // /item
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p2.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-1(href='#') Black Fashion Hat
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $65.00
+                                    // /item
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p13.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-1(href='#') Cotton 100% - Pink Dress
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $77.00
+                                    // /item
+
+                            // SLIDE 2
+                            div
+                                ul.list-unstyled.nomargin.nopadding.text-left
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p12.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-12(href='#') Long Grey Dress - Special
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $132.00
+                                    // /item
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p6.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-1(href='#') Black Fashion Hat
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $65.00
+                                    // /item
+                                    li.clearfix
+                                        // item
+                                        .thumbnail.featured.clearfix.pull-left
+                                            a(href='#')
+                                                img(src='assets/images/demo/shop/products/100x100/p14.jpg', width='80', height='80', alt='featured item')
+                                        a.block.size-1(href='#') Cotton 100% - Pink Dress
+                                        .rating.rating-4.size-13.width-100.text-left
+                                            // rating-0 ... rating-5
+                                        .size-18.text-left $77.00
+
+                    // HTML BLOCK
+                    .margin-bottom-60.hide
+                        h4 HTML BLOCK
+                        p
+                            | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras non placerat mi. Etiam non tellus eunit.
+                        form(action='#', role='form', method='post')
+                            .input-group
+                                span.input-group-addon
+                                    i.fa.fa-envelope
+                                input#email.form-control.required(type='email', name='email', placeholder='Enter your Email')
+                                span.input-group-btn
+                                    button.btn.btn-success(type='submit')
+                                        i.glyphicon.glyphicon-send
+
+append scripts
+    // PAGE LEVEL SCRIPTS
+    script(type='text/javascript', src='assets/js/view/demo.shop.js')
+
