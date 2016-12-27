@@ -1,82 +1,83 @@
-'use strict';
+"use strict";
 
-require('dotenv-safe').load()
-const gulp = require('gulp')
-const del = require('del')
-const imagemin = require('gulp-imagemin')
-const browserSync = require('browser-sync').create()
-const ftp = require('vinyl-ftp')
-const gutil = require( 'gulp-util' )
-const runSequence = require('run-sequence')
-const critical = require('critical')
-const cleanCSS = require('gulp-clean-css')
-const htmlmin = require('gulp-htmlmin')
-const minify = require('gulp-minify')
-const pug = require('gulp-pug')
-const _ = require('lodash')
-const rename = require('gulp-rename')
-const path = require('path')
+require("dotenv-safe").load()
 
-const allGlob = '/**/*';
+const gulp = require("gulp")
+const del = require("del")
+const imagemin = require("gulp-imagemin")
+const browserSync = require("browser-sync").create()
+const ftp = require("vinyl-ftp")
+const gutil = require( "gulp-util" )
+const runSequence = require("run-sequence")
+const critical = require("critical")
+const cleanCSS = require("gulp-clean-css")
+const htmlmin = require("gulp-htmlmin")
+const minify = require("gulp-minify")
+const pug = require("gulp-pug")
+const _ = require("lodash")
+const rename = require("gulp-rename")
+const path = require("path")
+
+const allGlob = "/**/*";
 
 // config vars for folders/files:
-var source = {  base: './source' };
-source.css = source.base + '/assets/css';
-source.cssFiles = source.css + '/**/*.css'; // only css files inside source folder
-source.img = source.base + '/assets/images';
-source.imgAll = source.img + allGlob; // all files in source images folder
-source.fonts = source.base + '/assets/fonts';
-source.fontsAll = source.fonts + allGlob;
-source.htmlFiles = source.base + '/**/*.html'; // only html files inside source folder
-source.js = source.base + '/assets/js';
-source.jsFiles = source.js + '/**/*.js'; // only js files inside source folder
-source.robotsFile = source.base + '/robots.txt'
-source.sitemapFile = source.base + '/sitemap.*'
-source.pluginsAll = source.base + '/assets/plugins/**/*.*'
-source.templates = source.base + '/pages/templates'
-source.templatePages = source.base + '/pages/*.pug'
-source.templatesAll = source.base + '/pages/**/*.pug'
+let source = {  base: "./source" }
+source.css = source.base + "/assets/css"
+source.cssFiles = source.css + "/**/*.css" // only css files inside source folder
+source.img = source.base + "/assets/images"
+source.imgAll = source.img + allGlob // all files in source images folder
+source.fonts = source.base + "/assets/fonts"
+source.fontsAll = source.fonts + allGlob
+source.htmlFiles = source.base + "/**/*.html"; // only html files inside source folder
+source.js = source.base + "/assets/js";
+source.jsFiles = source.js + "/**/*.js"; // only js files inside source folder
+source.robotsFile = source.base + "/robots.txt"
+source.sitemapFile = source.base + "/sitemap.*"
+source.pluginsAll = source.base + "/assets/plugins/**/*.*"
+source.templates = source.base + "/pages/templates"
+source.templatePages = source.base + "/pages/*.pug"
+source.templatesAll = source.base + "/pages/**/*.pug"
 
-var build = { base: './build' }
-build.css = build.base + '/assets/css'
+let build = { base: "./build" }
+build.css = build.base + "/assets/css"
 build.cssFiles = build.css;
-build.img = build.base + '/assets/images'
+build.img = build.base + "/assets/images"
 build.imgFiles = [
-  build.img + '/*.jpg',
-  build.img + '*.png',
-  build.img + '*.ico',
-  build.img + '*.gif'
+  build.img + "/*.jpg",
+  build.img + "*.png",
+  build.img + "*.ico",
+  build.img + "*.gif"
 ];
-build.fonts = build.base + '/assets//fonts'
-build.js = build.base + '/assets/js'
-build.plugins = build.base + '/assets/plugins'
-build.catalog = build.base + '/catalog'
+build.fonts = build.base + "/assets//fonts"
+build.js = build.base + "/assets/js"
+build.plugins = build.base + "/assets/plugins"
+build.catalog = build.base + "/catalog"
 
 
 // config var for task names:
-var task = {
-  clean: 'clean',
-  processCss: 'process-css',
-  processImg: 'process-images',
-  processFonts: 'process-fonts',
-  processHtml: 'process-html',
-  processJs: 'process-js',
-  processOther: 'process-other',
-  processAll: 'process-build',
-  webserver: 'webserver',
-  watchJs: 'watch-js',
-  watchCss: 'watch-css',
-  watchHtml: 'watch-html',
-  watchOther: 'watch-other',
-  watchPlugins: 'watch-plugins',
-  publish: 'publish',
-  publishWatch: 'publish-watch',
-  reload: 'reload-browser',
-  critical: 'critical-css',
-  processPlugins: 'process-plugins',
-  processTemplatePages: 'process-template-pages',
-  watchTemplates: 'watch-templates',
-  processCatalog: 'process-catalog'
+const task = {
+  clean: "clean",
+  processCss: "process-css",
+  processImg: "process-images",
+  processFonts: "process-fonts",
+  processHtml: "process-html",
+  processJs: "process-js",
+  processOther: "process-other",
+  processAll: "process-build",
+  webserver: "webserver",
+  watchJs: "watch-js",
+  watchCss: "watch-css",
+  watchHtml: "watch-html",
+  watchOther: "watch-other",
+  watchPlugins: "watch-plugins",
+  publish: "publish",
+  publishWatch: "publish-watch",
+  reload: "reload-browser",
+  critical: "critical-css",
+  processPlugins: "process-plugins",
+  processTemplatePages: "process-template-pages",
+  watchTemplates: "watch-templates",
+  processCatalog: "process-catalog"
 }
 
 // configuration for publish to FTP:
@@ -102,10 +103,10 @@ function getFtpConnection() {
   });
 }
 
-var browserSyncReady = false;
+let browserSyncReady = false;
 
 // define generic tasks
-gulp.task('default', [ task.webserver] );
+gulp.task("default", [ task.webserver] );
 gulp.task( task.processAll, function(done) {
   // use undocumented function to start complete build just after clean:
   runSequence( 
@@ -134,8 +135,8 @@ gulp.task( task.clean, function () {
 gulp.task( task.processCss, function () {
   return gulp.src( source.cssFiles  )
     .pipe(cleanCSS({debug: true}, function(details) {
-      console.log(details.name + ': ' + details.stats.originalSize + 'b (original)');
-      console.log(details.name + ': ' + details.stats.minifiedSize + 'b minified');
+      console.log(details.name + ": " + details.stats.originalSize + "b (original)");
+      console.log(details.name + ": " + details.stats.minifiedSize + "b minified");
     }))
     .pipe( gulp.dest( build.css ));
 });
@@ -166,19 +167,48 @@ gulp.task( task.processHtml, function () {
 
 // Catalog: Generate catalog
 gulp.task( task.processCatalog, function (done) {
-  let categories = require( './source/data/categories.json' )
+  // load all data from JSON
+  let categories = require( "./source/data/categories.json" )
+
+  let products = require("./source/data/products.json")
+  let brands = require("./source/data/brands.json")
+  let groups = require("./source/data/groups.json")
+
+
+
+  let brandKeys = _.map(_.uniqBy(products, "brandId"), (item) => item.brandId)
+  let groupKeys = _.map(_.uniqBy(products, "groupId"), (item) => item.groupId)
+
+  console.log("brands:")
+  console.log( brandKeys )
+  console.log( "groups:")
+  console.log( groupKeys )
+
+  // join data:
+  _.each( products, (product) => {
+    product.brand = _.find(brands, [ 'brandId', product.brandId ] )
+    product.group = _.find(groups, [ 'groupId', product.groupId ] )
+  })
+
+  console.log( "Joined data:" )
+  console.log( products )
+
+
 
   _.each( categories, ( item ) => {
-    gulp.src( source.templates + '/cards.pug' )
+    gulp.src( source.templates + "/cards.pug" )
       .pipe( pug( {
         basedir: source.templates,
         locals: {
+          products: products,
+          groups: groups,
+          brands: brands,
           categories: categories,
           active_category: item,
           active_item: ""
         } } ))
-      .pipe( rename( path.format( { name:item.url, ext: '.html' } )))
-      .pipe( gulp.dest( build.base + '/catalog/') )
+      .pipe( rename( path.format( { name:item.url, ext: ".html" } )))
+      .pipe( gulp.dest( build.base + "/catalog/") )
   })
 
   done()
@@ -260,24 +290,26 @@ gulp.task(task.webserver, [task.processAll], function() {
 // PUBLISH: upload files to FTP
 gulp.task( task.publish, [task.processAll], function() {
 
+  return
+
   var conn = getFtpConnection();
 
   var stream = gulp.src( connection.sourcePath, { base: build.base, buffer: false });
 
   if ( !process.env.PUBLISH_ALL) {
-    console.log('publishing only newer files');
+    console.log("publishing only newer files");
     stream = stream.pipe(conn.newer(connection.destPath)); // only upload newer files
   }
   return stream.pipe( conn.dest( connection.destPath ) );
 });
 
 gulp.task( task.critical, [ task.processAll], function (done) {
-  console.log( 'Start generating critical CSS');
+  console.log( "Start generating critical CSS");
   critical.generate({
     inline: true,
-    base: './original/index-old.html',
-    src: 'index.html',
-    dest: source.base + '/index-old.html',
+    base: "./original/index-old.html",
+    src: "index.html",
+    dest: source.base + "/index-old.html",
     minify: true,
     width: 320,
     height: 480

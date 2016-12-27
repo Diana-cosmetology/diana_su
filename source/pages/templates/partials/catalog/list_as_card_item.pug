@@ -1,0 +1,47 @@
+// ITEM
+
+li.col-lg-4.col-sm-4
+    .shop-item
+        .thumbnail
+            // product image(s)
+            a.shop-item-image(href='shop-single-left.html')
+                img.img-responsive(src='/assets/images/demo/shop/products/300x450/p13.jpg', alt='shop first image')
+                img.img-responsive(src='/assets/images/demo/shop/products/300x450/p14.jpg', alt='shop hover image')
+
+            // hover buttons
+            .shop-option-over
+                // replace data-item-id width the real item ID - used by js/view/demo.shop.js
+                a.btn.btn-default.add-wishlist(href='#', data-item-id='1', data-toggle='tooltip', title='Add To Wishlist')
+                    i.fa.fa-heart.nopadding
+                a.btn.btn-default.add-compare(href='#', data-item-id='1', data-toggle='tooltip', title='Add To Compare')
+                    i.fa.fa-bar-chart-o.nopadding(data-toggle='tooltip')
+
+            // countdown
+            .shop-item-counter
+                .countdown(data-from='January 31, 2018 15:03:26', data-labels='years,months,weeks,days,hour,min,sec')
+                    // Example Date From: December 31, 2018 15:03:26
+
+            // product more info
+            .shop-item-info
+                span.label.label-success NEW
+                span.label.label-danger SALE
+            // /product more info
+
+            .shop-item-summary.text-center
+            h2 Cotton 100% - Pink Shirt
+
+            // rating
+            .shop-item-rating-line
+                .rating.rating-4.size-13
+                    // rating-0 ... rating-5
+
+            // price
+            .shop-item-price
+                span.line-through $98.00
+                | $78.00
+
+            // buttons
+            .shop-item-buttons.text-center
+                a.btn.btn-default(href='shop-cart.html')
+                    i.fa.fa-cart-plus
+                    |  Add to Cart

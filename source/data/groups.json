@@ -1,0 +1,50 @@
+[
+  {
+    "groupId": "novaGroup",
+    "caption": "Препараты NOVA"
+  },
+  {
+    "groupId": "platinumGroup",
+    "caption": "Филлеры Platinum"
+  },
+  {
+    "groupId": "kormanGroup",
+    "caption": "Препараты Dr.Korman"
+  },
+  {
+    "groupId": "zfillGroup",
+    "caption": "Филлеры Z-Fill"
+  },
+  {
+    "groupId": "aquashineGroup",
+    "caption": "Aquashine"
+  },
+  {
+    "groupId": "dermahealGroup",
+    "caption": "Dermaheal"
+  },
+  {
+    "groupId": "revofilGroup",
+    "caption": "Revofil"
+  },
+  {
+    "groupId": "princessGroup",
+    "caption": "Филлеры PRINCESS"
+  },
+  {
+    "groupId": "reviGroup",
+    "caption": "Препараты NMTC"
+  },
+  {
+    "groupId": "progelcaineGroup",
+    "caption": "Анестетики"
+  },
+  {
+    "groupId": "carboxyGroup",
+    "caption": "Карбокситерапия"
+  },
+  {
+    "groupId": "patchesGroup",
+    "caption": "Патчи"
+  }
+]

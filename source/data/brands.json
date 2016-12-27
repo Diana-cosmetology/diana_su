@@ -1,19 +1,72 @@
 [
   {
-    "brandId": "caregen",
-    "name": "Caregen LTD",
-    "country": "Южная Корея",
-    "logo": "caregen.png",
-    "brands": [
-      { "id": "aquashine" }
-    ]
+    "brandId": "nova",
+    "caption": "NovaTechnologies (на базе ФБУН ГНЦ ВБ «Вектор)",
+    "country": "г.Новосибирск"
   },
-
+  {
+    "brandId" : "platinum",
+    "caption": "Dr. Korman",
+    "producedBy": "korman",
+    "country": "Израиль"
+  },
+  {
+    "brandId": "korman",
+    "caption": "Dr. Korman",
+    "producedBy": "korman",
+    "country": "Израиль"
+  },
+  {
+    "brandId": "zfill",
+    "caption": "Zimmer MedizinSysteme",
+    "country": "Германия"
+  },
   {
     "brandId": "aquashine",
-    "parentId": "caregen",
-    "name": "AQUASHINE",
-    "description": "",
-    "logo": "aquashine.png"
+    "caption": "Caregen",
+    "producedBy": "caregen",
+    "country": "Корея"
+  },
+  {
+    "brandId": "dermaheal",
+    "caption": "Caregen",
+    "producedBy": "caregen",
+    "country": "Корея"
+  },
+  {
+    "brandId": "revofil",
+    "caption": "Caregen",
+    "producedBy": "caregen",
+    "country": "Корея"
+  },
+  {
+    "brandId": "princess",
+    "caption": "Croma",
+    "country": "Австрия"
+  },
+  {
+    "brandId": "revi",
+    "caption": "NMTS International",
+    "country": "Россия"
+  },
+  {
+    "brandId": "progelcaine",
+    "caption": "",
+    "country": "Корея"
+  },
+  {
+    "brandId": "txDouble",
+    "caption": "",
+    "country": "Корея"
+  },
+  {
+    "brandId": "ikin",
+    "caption": "",
+    "country": "Корея"
+  },
+  {
+    "brandId": "univello",
+    "caption": "",
+    "country": "Корея"
   }
 ]

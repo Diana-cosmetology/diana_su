@@ -1,0 +1,18 @@
+// LIST OPTIONS partial
+// Used locals:
+//   display_mode: list, card
+//   display_mode_as_list_url: (if card mode)
+//   display_mode_as_card_url:
+
+
+.clearfix.shop-list-options.margin-bottom-20
+    .options-left
+        select.hide
+            option(value='pos_asc') Position ASC
+            option(value='pos_desc') Position DESC
+            option(value='name_asc') Name ASC
+            option(value='name_desc') Name DESC
+            option(value='price_asc') Price ASC
+            option(value='price_desc') Price DESC
+        a.btn.fa.fa-th.active(href=( display_mode_as_list_url ? display_mode_as_list_url : "#") )
+        a.btn.fa.fa-list(href=( display_mode_as_card_url ? display_mode_as_card_url : "#"))
